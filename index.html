@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong 4 Joueurs P2P</title>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Panel gauche -->
+        <div class="panel">
+            <h2>Votre profil</h2>
+            <div class="user-profile">
+                <div class="user-profile-label">Pseudo</div>
+                <div class="user-profile-name" id="displayUsername">-</div>
+            </div>
+            
+            <div id="createRoomSection" style="display: none;">
+                <button id="createRoom">🎮 Créer une partie</button>
+                
+                <div id="roomLinkSection" style="display: none;">
+                    <h2 style="margin-top: 20px;">Lien de partie</h2>
+                    <div class="room-link-box" id="roomLink"></div>
+                    <button id="copyLink">📋 Copier le lien</button>
+                    <div class="info-box">
+                        💡 Partagez ce lien avec vos adversaires (max 4 joueurs)
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-list" id="playerList" style="display: none;">
+                <h2>Joueurs connectés</h2>
+                <div id="playersContainer"></div>
+            </div>
+            
+            <div id="connectionStatus" class="status-box" style="display: none;">
+                <div style="margin-bottom: 5px;">📡 Statut : <span id="statusText">Déconnecté</span></div>
+            </div>
+        </div>
+
+        <!-- Panel central - Jeu -->
+        <div class="panel">
+            <div class="game-container">
+                <div class="game-status" id="gameStatus">En attente de joueurs...</div>
+
+                <canvas id="gameCanvas" width="450" height="450"></canvas>
+                
+                <div class="game-info">
+                    <div>Contrôles : <strong>W/S</strong> pour haut/bas | <strong>A/D</strong> pour gauche/droite</div>
+                </div>
+
+                <!-- Webcams -->
+                <div class="webcam-grid" id="webcamGrid">
+                    <div class="webcam-container" id="webcam0">
+                        <video id="localVideo" autoplay muted playsinline></video>
+                        <div class="webcam-label" id="label0">Vous</div>
+                    </div>
+                    <div class="webcam-container empty" id="webcam1">
+                        <span>En attente...</span>
+                    </div>
+                    <div class="webcam-container empty" id="webcam2">
+                        <span>En attente...</span>
+                    </div>
+                    <div class="webcam-container empty" id="webcam3">
+                        <span>En attente...</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 15px; max-width: 600px;">
+                    <button id="startGame" style="flex: 1; margin: 0; display: none;">▶️ Démarrer la partie</button>
+                    <button id="copyLinkGame" style="flex: 0 0 140px; margin: 0; display: none;">📋 Copier le lien</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel droit - Chat -->
+        <div class="panel">
+            <h2>Chat</h2>
+            <div id="chatMessages"></div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Votre message...">
+                <button id="sendChat">Envoyer</button>
+            </div>
+        </div>
+    </div>
+<script src="index.js"></script>
+</body>
+</html>
