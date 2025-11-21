@@ -83,14 +83,6 @@ PeerToPeer/
 └── README.md           # Documentation
 ```
 
-## 🎮 Contrôles
-
-| Joueur | Position | Mouvement | Touches |
-|--------|----------|-----------|---------|
-| 1 | Gauche | Haut/Bas | W/S ou ↑/↓ |
-| 2 | Droite | Haut/Bas | W/S ou ↑/↓ |
-| 3 | Haut | Gauche/Droite | A/D ou ←/→ |
-| 4 | Bas | Gauche/Droite | A/D ou ←/→ |
 
 ## 🔧 Fonctionnement technique
 
